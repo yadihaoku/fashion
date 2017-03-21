@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="cn.yyd.fashiontech"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission
+        android:name="cn.yyd.yan"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:name=".FashionApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".rxJava.RxActivity"
+            android:process=":tools">
+        </activity>
+        <activity android:name=".rxJava.ResultActivity">
+        </activity>
+        <activity android:name=".anim.CubicAnimActivity">
+        </activity>
+        <activity android:name=".window.WindowActivity">
+        </activity>
+        <activity android:name=".md.MD_TextInputLayout_2">
+        </activity>
+        <activity
+            android:name=".md.RecyclerActivity"
+            android:label="@string/title_activity_recycler"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".base.LinearLayout">
+        </activity>
+        <activity android:name=".gesture.GestureActivity">
+        </activity>
+        <activity android:theme="@style/AppTheme.NoActionBar" android:name=".ParallaxToolBar">
+        </activity>
+    </application>
+
+</manifest>

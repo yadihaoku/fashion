@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingMode="nest"
+    android:paddingLeft="2dp"
+    android:paddingBottom="2dp"
+    >
+    <!--  第一层 颜色 -->
+    <item >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorAccent" />
+        </shape>
+    </item>
+    <!-- 第二层颜色 保留 第一层颜色的 下部 -->
+    <item android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+    <!-- 第三层颜色 覆盖 顶部颜色。左 右 下 各保留一像素 -->
+    <item android:bottom="1dp" android:left="1dp" android:right="1dp" >
+        <shape >
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

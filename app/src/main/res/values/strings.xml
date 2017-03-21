@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FashionTech</string>
+    <string name="title_activity_recycler">RecyclerActivity</string>
+</resources>

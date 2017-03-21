@@ -1,0 +1,53 @@
+# Android generated
+bin/
+gen/
+captures/
+
+#测试库
+javaLib/
+toollib/
+
+# Ant
+build.xml
+local.properties
+project.properties
+
+# Maven
+target/
+pom.xml.*
+release.properties
+gradle.properties
+
+# Eclipse
+.classpath
+.externalToolBuilders/
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
+# Mac
+.DS_Store
+
+# Ignore gradle files
+.gradle/
+*build/
+
+# Private
+signing.properties
+/bin/
+/proguard/
+/proguard_logs/
+# Mac os
+.DS_Store
+*.log
+
+# APK
+*.apk
+
+# screen caputre
+screenshot/
+

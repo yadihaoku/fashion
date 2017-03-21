@@ -1,0 +1,1 @@
+include ':app', ':myapplication', ':nestedscroll', ':tablayout', ':javatest', ':yydutils', ':aidlserver', ':kankanshu'

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="binder"
+            type="cn.yyd.fashiontech.MainActivityDataBinder"/>
+
+        <variable
+            name="handler"
+            type="cn.yyd.fashiontech.MainActivityHandler"/>
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/ic_logo_bg"
+        android:foregroundTint="#aaFF0000"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="cn.yyd.fashiontech.MainActivity">
+
+        <Button
+            android:id="@+id/btn_open_window"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/button"
+            android:layout_marginTop="66dp"
+            android:elevation="9dp"
+            android:onClick="@{(view) -> handler.openWindow(view)}"
+            android:text="OpenWindow"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_button"
+            android:onClick="@{(view) -> handler.onTitleClick(view)}"
+            android:text="@{binder.message }"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/button"
+            android:layout_toEndOf="@+id/button"
+            android:background="@drawable/ic_logo_bg"
+            android:scaleType="centerInside"
+            android:src="@drawable/leak_canary_icon"/>
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/ic_imitate_wx"/>
+
+        <Button
+            android:id="@+id/btn_smooth_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="46dp"
+            android:onClick="@{(view) -> handler.onChangeBgClick(view)}"
+            android:text="New Button"/>
+
+        <Button
+            android:id="@+id/btn_to_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:elevation="23dp"
+            android:onClick="@{(view) -> handler.toAnimator(view)}"
+            android:text="Animator"/>
+
+        <Button
+            android:id="@+id/btn_input_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_to_anim"
+            android:layout_alignTop="@+id/btn_smooth_background"
+            android:onClick="@{(view) -> handler.toInputLayout(view)}"
+            android:text="登录"/>
+
+        <Button
+            android:id="@+id/btn_show_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editText"
+            android:layout_alignTop="@+id/btn_to_anim"
+            android:layout_marginEnd="37dp"
+            android:onClick="@{handler::toRecycler}"
+            android:text="Show Recycler"/>
+
+        <Button
+            android:id="@+id/btn_to_recycler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button"
+            android:layout_alignBottom="@+id/button"
+            android:layout_marginStart="17dp"
+            android:layout_toEndOf="@+id/button"
+            android:onClick="@{handler::toRecycler}"
+            android:text="to_recycler"
+            tools:text="@string/title_activity_recycler"/>
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@+id/btn_open_window"
+            app:srcCompat="@mipmap/ic_avatar"/>
+
+
+        <cn.yyd.fashiontech.shader.ShaderRoundView
+            android:id="@+id/shaderRound"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/btn_to_recycler"
+            android:onClick="@{handler::toGesture}"
+            android:layout_toLeftOf="@+id/btn_smooth_background"
+            app:shader_src="@mipmap/ic_avatar"/>
+
+        <cn.yyd.fashiontech.shader.ShaderView
+            android:id="@+id/ratingBar"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:shader_src="@mipmap/ic_avatar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <Button
+            android:text="Vibrator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_to_recycler"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:onClick="@{handler::vibrator}"
+            android:id="@+id/btn_vibrator"/>
+
+        <Button
+            android:onClick="@{handler::parallax}"
+            android:text="btn_parallax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/editText"
+            android:layout_alignLeft="@+id/btn_vibrator"
+            android:layout_alignStart="@+id/btn_vibrator"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp"
+            android:id="@+id/btn_parallax"/>
+
+
+    </RelativeLayout>
+</layout>

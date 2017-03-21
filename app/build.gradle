@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        applicationId "cn.yyd.fashiontech"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        debugKey{
+
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // Android Nougat 中新加的 APK signature scheme v2
+//            v2SigningEnabled false
+        }
+        debug{
+            debuggable true
+        }
+    }
+
+    // 启用 data binding
+    dataBinding {
+        enabled = true
+    }
+}
+task  sayWhat{
+    println "这是什么 from gradle"
+}
+/** 任务继承
+task copyDir(type : Copy){
+    from 'E:\\TestInitial.txt'
+    into 'E:\\abc'
+}
+ **/
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+//    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    //引入 leak canary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    compile 'com.android.support:design:25.0.1'
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="cn.yyd.aidlserver.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:id="@+id/textView"/>
+
+    <Button
+        android:text="Start Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/btn_start"/>
+
+    <Button
+        android:text="STOP SERVICE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_start"
+        android:layout_alignStart="@+id/btn_start"
+        android:layout_marginTop="59dp"
+        android:id="@+id/btn_stop"/>
+
+    <Button
+        android:text="addition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_stop"
+        android:layout_alignStart="@+id/btn_stop"
+        android:layout_marginTop="85dp"
+        android:id="@+id/btn_addition"/>
+
+    <Button
+        android:text="MAKE PERSON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_addition"
+        android:layout_toEndOf="@+id/btn_stop"
+        android:id="@+id/btn_make_person"/>
+
+    <Button
+        android:text="SLEEP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_addition"
+        android:layout_alignEnd="@+id/btn_addition"
+        android:layout_marginTop="17dp"
+        android:id="@+id/btn_sleep"/>
+
+    <Button
+        android:text="GET NAME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_sleep"
+        android:layout_toEndOf="@+id/btn_start"
+        android:id="@+id/btn_get_names"/>
+
+    <Button
+        android:text="oneway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_make_person"
+        android:layout_alignEnd="@+id/btn_addition"
+        android:id="@+id/btn_oneway"/>
+
+    <Button
+        android:text="mixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_stop"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="34dp"
+        android:onClick="onClick"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_mixed"/>
+
+    <Button
+        android:text="reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_mixed"
+        android:layout_alignStart="@+id/btn_mixed"
+        android:layout_marginTop="12dp"
+        android:onClick="onClick"
+        android:id="@+id/btn_reset"
+        />
+
+    <Button
+        android:text="setAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_mixed"
+        android:layout_alignEnd="@+id/btn_mixed"
+        android:onClick="onClick"
+        android:id="@+id/btn_set_age"/>
+</RelativeLayout>
