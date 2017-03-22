@@ -111,8 +111,8 @@
             android:layout_alignBottom="@+id/button"
             android:layout_marginStart="17dp"
             android:layout_toEndOf="@+id/button"
-            android:onClick="@{handler::toRecycler}"
-            android:text="to_recycler"
+            android:onClick="@{handler::showRecycler}"
+            android:text="to_LeakCandary"
             tools:text="@string/title_activity_recycler"/>
 
         <ImageView
@@ -165,6 +165,16 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp"
             android:id="@+id/btn_parallax"/>
+
+        <Button
+            android:text="level drawable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_level_drawable"
+            android:layout_below="@+id/imageView"
+            android:layout_toLeftOf="@+id/shaderRound"
+            android:layout_toStartOf="@+id/shaderRound"
+            android:onClick="toLevel"/>
 
 
     </RelativeLayout>

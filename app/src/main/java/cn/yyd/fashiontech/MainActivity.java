@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 
 import cn.yyd.fashiontech.databinding.ActivityMainBinding;
+import cn.yyd.fashiontech.drawable.LevelDrawableActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        }, 5000);
 
+//        LeakCanary.refWatcher(this).build().watch();
 
     }
 
@@ -69,5 +71,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "onDestroy: " + this);
+    }
+    public void toLevel(View view){
+        startActivity(new Intent(this, LevelDrawableActivity.class));
     }
 }
