@@ -27,12 +27,15 @@ public class ReentrantLockTest {
         new Thread() {
             @Override
             public void run() {
-                //
+                //读取线程 闭锁，当读取结束后，打开门锁
                 CountDownLatch countDownLatch = new CountDownLatch(1);
                 WorkerRead workerRead = new WorkerRead(reentrantLock, countDownLatch);
                 workerRead.start();
                 try {
-                    System.out.println("等待读取结束---");
+                    System.out.println("等待读取结束");
+                    System.out.println("-------------------------");
+                    System.out.println("result =[" + result + "]");
+                    System.out.println("-------------------------");
                     //等待读线程结束
                     countDownLatch.await();
                     System.out.println("读取完了");
@@ -61,7 +64,9 @@ public class ReentrantLockTest {
             mLock.lock();
             System.out.println("--读取线程 已经获取锁  threadId = " + Thread.currentThread().getId());
             try {
+                System.out.println("-------------------------");
                 System.out.println("result =[" + result + "]");
+                System.out.println("-------------------------");
             } finally {
                 mLock.unlock();
                 countDownLatch.countDown();
