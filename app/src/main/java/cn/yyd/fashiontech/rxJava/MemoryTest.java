@@ -92,10 +92,25 @@ public class MemoryTest {
             this.id = id;
             System.out.println("Data created: " + this);
         }
+        /**
+         *
+         */
+        public static void   hi(){
 
+        }
         @Override
         public String toString() {
             return "{id=" + id + " " + super.toString() + "}";
+        }
+    }
+    static class A extends Data{
+
+
+        public A(int id) {
+            super(id);
+        }
+        public static void hi(){
+
         }
     }
 }

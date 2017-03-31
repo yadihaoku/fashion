@@ -25,8 +25,28 @@ public class MyClass {
 //        System.out.println((char) 0x4e02);
 
 //        System.out.println( new MyClass().num2Voice(1110558));
-        System.out.println((int)2.4);
-        System.out.println((int)2.8);
+
+//       boolean b = false;
+//        b |=true;
+//        b |=true;
+//        b |=false;
+//        System.out.println(b);
+//
+//        System.out.println(10/3);
+//        System.out.println(3/2);
+        tryFinally();
+
+    }
+
+    static void tryFinally(){
+        if(3 >2)
+            throw new RuntimeException("error");
+        try {
+
+            System.out.println("in try block");
+        }finally {
+            System.out.println("in finally block");
+        }
     }
 
       String num2Voice(int number) {
@@ -39,6 +59,7 @@ public class MyClass {
             if(tmp !='0')
                 numStrings.append(getNumUnit(numbers.length()-i-1) );
         }
+
 
         return numStrings.toString();
 
