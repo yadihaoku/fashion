@@ -107,4 +107,7 @@ public class MainActivityHandler {
     public void parallax(View view){
         view.getContext().startActivity(new Intent(view.getContext(), ParallaxToolBar.class));
     }
+    public void showRecycler(View view){
+        view.getContext().startActivity(new Intent(view.getContext(), ParallaxToolBar.class));
+    }
 }

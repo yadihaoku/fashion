@@ -70,7 +70,6 @@ public class ReentrantLockCondition {
                 try {
                     System.out.println("需要等待别人开锁===waiting");
                     selfLock.await();
-                    Thread.currentThread().holdsLock()
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
