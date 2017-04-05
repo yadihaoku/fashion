@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -14,7 +13,7 @@ import android.view.ViewTreeObserver;
 import cn.yyd.fashiontech.databinding.ActivityMainBinding;
 import cn.yyd.fashiontech.drawable.LevelDrawableActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static String TAG = "MainActivity";
     private Handler mHandler = new Handler();

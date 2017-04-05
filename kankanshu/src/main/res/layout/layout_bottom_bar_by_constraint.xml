@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="48dp"
+                                             android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_main"
+
+        android:text="主页"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_discover"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        style="@style/tabItem"
+        android:layout_width="0dp" />
+
+    <TextView
+        android:id="@+id/tv_discover"
+        style="@style/tabItem"
+        android:text="发现"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#00f"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_main"
+        app:layout_constraintRight_toLeftOf="@+id/tv_settings"
+        />
+
+    <TextView
+        android:id="@+id/tv_settings"
+
+        android:text="设置"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_discover"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        con
+        style="@style/tabItem"
+        android:layout_width="0dp"
+        />
+
+</android.support.constraint.ConstraintLayout>

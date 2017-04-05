@@ -3,7 +3,6 @@ package cn.yyd.fashiontech.md;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,9 +18,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import cn.yyd.fashiontech.BaseActivity;
 import cn.yyd.fashiontech.R;
 
-public class RecyclerActivity extends AppCompatActivity {
+public class RecyclerActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

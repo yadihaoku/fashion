@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                            android:layout_height="48dp"
+                                            android:layout_width="match_parent"
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:orientation="vertical">
+
+    <TextView
+        android:text="主页"
+        android:layout_width="0dp"
+        style="@style/tabItem"
+
+        android:layout_height="match_parent"
+        app:layout_widthPercent="33.3%"
+        />
+    <TextView
+        android:text="发现"
+        style="@style/tabItem"
+        android:layout_width="0dp"
+        app:layout_widthPercent="33.3%"
+        android:layout_height="match_parent"
+        app:layout_marginLeftPercent="33.3%"
+        />
+    <TextView
+        android:text="设置"
+        style="@style/tabItem"
+        android:layout_width="0dp"
+        app:layout_widthPercent="33.3%"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|top"
+        />
+
+</android.support.percent.PercentFrameLayout>
