@@ -5,4 +5,11 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black_overlay">#66000000</color>
+
+    <color name="colorPrimaryTextColor">#333</color>
+    <color name="colorSecondTextColor">#99333333</color>
+    <color name="colorLightTextColor">#FFF</color>
+
+    <color name="color_tab_unchecked">#EEE</color>
+    <color name="color_tab_checked">#AAA</color>
 </resources>

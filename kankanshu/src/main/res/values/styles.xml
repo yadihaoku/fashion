@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,11 +11,14 @@
     <style name="noTitle" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
         <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
         <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="bubbleColor">#F00</item>
+        <item name="bubbleStrokeColor">#666</item>
     </style>
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
@@ -23,7 +26,9 @@
     </style>
 
     <style name="tabItem">
-        <item name="android:background">#eee</item>
+        <!--<item name="android:background">@drawable/selector_bottom_tab_bar</item>-->
+        <item name="android:background">@drawable/control_background_40dp_material</item>
+        <item name="android:textColor">@color/color_selector_bottom_tab_bar</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14sp</item>
     </style>
