@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
                                              android:orientation="vertical">
@@ -11,22 +10,20 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/colorPrimary"
+        app:contentInsetStart="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:paddingLeft="0dp"
+        android:subtitle="null"
         app:layout_constraintTop_toTopOf="parent"
-        app:logo="@null"
-        app:title="这是什么"
-
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1">
+        >
 
         <TextView
-            android:id="@+id/tv_title"
+            android:background="@color/colorAccent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="这是标题"/>
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"/>
+
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
@@ -39,17 +36,26 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <Button
-            android:text="Button"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"/>
+            android:text="Button"/>
 
         <Button
-            android:text="Button"
-            android:layout_gravity="right"
+            android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button2"/>
+            android:layout_gravity="right"
+            android:text="Button"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:lines="3"
+            android:text="TextVisadfasfdasfasfsew"/>
     </FrameLayout>
 
     <include

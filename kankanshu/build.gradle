@@ -20,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -38,4 +43,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:percent:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:+'
+
+    /** 引用 butter knife **/
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }
