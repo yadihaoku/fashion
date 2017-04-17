@@ -5,6 +5,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,8 @@ public class PeopleNominal {
 
     public static final String ENCRYPTED = "TVRRNU1qRTBPVFk9WTI5dWRHVnVkQ3N4TkRreU1UUTVOa0JqWVc5dWFXMWhZbWs9";
 
+    public static final String FILE_PATH = "people.txt";
+
     public static void main(String[] args) {
         List<String> urls = getAllPartAddress();
         final int partStart = 0;
@@ -36,7 +40,7 @@ public class PeopleNominal {
         CountDownLatch downloadCount = new CountDownLatch(partEnd);
 
         for (int i = partStart; i < partEnd; i++) {
-            executor.execute(new Work(urls.get(i), i , videoManager, downloadCount));
+            executor.execute(new Work(urls.get(i), i, videoManager, downloadCount));
         }
 
         executor.shutdown();
@@ -66,7 +70,6 @@ public class PeopleNominal {
      */
     static Document getDocByUrl(String url) {
         try {
-            System.out.println("=== GET  URL = " + url);
             Document document = Jsoup.connect(url)
                     .userAgent(USER_AGENT)
                     //如果获取不到数据，需要添加 referer
@@ -112,6 +115,8 @@ public class PeopleNominal {
                 downLatch.await();
                 System.out.println("---- 下载 完成 ----");
                 videoManager.viewUrls();
+                //写入文件
+                videoManager.writeToFile(FILE_PATH);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -219,7 +224,30 @@ public class PeopleNominal {
                 Movie movie = videos[i];
                 System.out.println(String.format("%s %s", movie.title, movie.url));
             }
+        }
 
+        public void writeToFile(String filePath) {
+            File file = new File(filePath);
+            FileWriter fileWriter = null;
+            try {
+                fileWriter = new FileWriter(file, false);
+                for (int i = 0; i < videos.length; i++) {
+                    Movie movie = videos[i];
+                    fileWriter.write(movie.title);
+                    fileWriter.write("\r\n");
+                    fileWriter.write(movie.url);
+                    fileWriter.write("\r\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (fileWriter != null)
+                    try {
+                        fileWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+            }
         }
     }
 
