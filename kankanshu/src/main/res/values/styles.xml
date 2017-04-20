@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="menu_list_style">@style/menu_list_style</item>
     </style>
 
     <style name="noTitle" parent="AppTheme">
@@ -33,4 +34,7 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="menu_list_style">
+        <item name="android:scrollbars">none</item>
+    </style>
 </resources>

@@ -21,4 +21,6 @@
     <dimen name="edit_text_inset_horizontal_material">4dp</dimen>
     <dimen name="edit_text_inset_top_material">10dp</dimen>
     <dimen name="edit_text_inset_bottom_material">7dp</dimen>
+
+    <dimen name="class_list_one_level_width">120dp</dimen>
 </resources>

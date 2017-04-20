@@ -16,4 +16,6 @@
         <attr name="bubbleStrokeColor" format="color" />
     </declare-styleable>
 
+    <attr name="menu_list_style" format="reference" />
+
 </resources>

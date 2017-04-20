@@ -1,4 +1,4 @@
-package cn.yyd.kankanshu;
+package cn.yyd.kankanshu.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -6,10 +6,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.yyd.kankanshu.activity.BaseActivity;
+import cn.yyd.kankanshu.R;
+import cn.yyd.kankanshu.ui.book.ClassListFragment;
 import cn.yyd.kankanshu.view.BubbleCheckedTextView;
 
 /**
@@ -26,6 +29,10 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.textView4) TextView mTextView;
 
+
+    @Inject ClassListFragment mainFragment;
+//    @Inject BookListInterface mBookList;
+
     /**
      * 底部BottomBar 单击事件
      *
@@ -39,9 +46,6 @@ public class MainActivity extends BaseActivity {
             item.setChecked(item == tabItem);
         }
 
-        int linecount = mTextView.getLayout().getLineCount();
-        for(int i=0; i < linecount;i++)
-            System.out.println(mTextView.getLayout().getEllipsisCount(i));
     }
 
     @Override
@@ -53,6 +57,7 @@ public class MainActivity extends BaseActivity {
 
         final BubbleCheckedTextView tvMain = (BubbleCheckedTextView) findViewById(R.id.tv_main);
         tvMain.setChecked(true);
+        assert savedInstanceState != null;
 
     }
 

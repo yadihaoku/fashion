@@ -1,8 +1,9 @@
-package cn.yyd.kankanshu;
+package cn.yyd.kankanshu.di.components;
 
 import javax.inject.Singleton;
 
-import cn.yyd.kankanshu.modules.AndroidModule;
+import cn.yyd.kankanshu.KKApplication;
+import cn.yyd.kankanshu.di.modules.AndroidModule;
 import dagger.Component;
 
 /**
@@ -12,4 +13,6 @@ import dagger.Component;
 @Component(modules = AndroidModule.class)
 public interface AppComponent {
     void inj(KKApplication application);
+    KKApplication application();
+//    ClassListFragment classList();
 }

@@ -50,6 +50,7 @@ public class MyClass {
         Pattern pattern = Pattern.compile("video", Pattern.MULTILINE |Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
         System.out.println(pattern.matcher(string).find());
         System.out.println(string);
+        assert  string != null;
 
     }
 

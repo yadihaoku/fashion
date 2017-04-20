@@ -1,4 +1,6 @@
-package cn.yyd.kankanshu.modules;
+package cn.yyd.kankanshu.di.modules;
+
+import javax.inject.Singleton;
 
 import cn.yyd.kankanshu.KKApplication;
 import cn.yyd.kankanshu.dao.BookListInterface;
@@ -17,9 +19,17 @@ public class AndroidModule {
         this.application = application;
     }
 
-    @Provides
+
+    @Provides @Singleton
     public BookListInterface provideBookList() {
         return new Qing100BookList();
     }
 
+    @Provides @Singleton KKApplication application() {
+        return application;
+    }
+
+    @Provides String getName(){
+        return "lazyLoad";
+    }
 }

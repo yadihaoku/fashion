@@ -1,4 +1,4 @@
-package cn.yyd.kankanshu.activity;
+package cn.yyd.kankanshu.ui.activity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
