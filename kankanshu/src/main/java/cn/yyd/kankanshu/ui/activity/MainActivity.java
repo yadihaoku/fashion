@@ -13,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.yyd.kankanshu.R;
 import cn.yyd.kankanshu.ui.book.ClassListFragment;
+import cn.yyd.kankanshu.utils.logging.Ln;
 import cn.yyd.kankanshu.view.BubbleCheckedTextView;
 
 /**
@@ -45,7 +46,10 @@ public class MainActivity extends BaseActivity {
             BubbleCheckedTextView item = (BubbleCheckedTextView) viewGroup.getChildAt(i);
             item.setChecked(item == tabItem);
         }
-
+        Ln.d(getApplicationContext().getApplicationContext().getApplicationContext().getApplicationContext());
+        Ln.d(getApplication().getApplicationContext().getApplicationContext());
+        Ln.d(getApplicationContext().getApplicationContext());
+        Ln.d(getBaseContext().getApplicationContext());
     }
 
     @Override

@@ -9,8 +9,11 @@ import android.graphics.Paint;
 public class TextUtils {
 
     public static float getTextHeight(Paint.FontMetrics fm){
-
         return  (float)Math.ceil(fm.descent - fm.ascent);
+    }
 
+    public final static String toString(Object obj){
+        if(obj == null)return "";
+        return obj.toString();
     }
 }
