@@ -3,6 +3,7 @@ package cn.yyd.kankanshu;
 import android.app.Application;
 
 import cn.yyd.kankanshu.di.components.AppComponent;
+import cn.yyd.kankanshu.di.components.DaggerAppComponent;
 import cn.yyd.kankanshu.di.modules.AndroidModule;
 
 /**

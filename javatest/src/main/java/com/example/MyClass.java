@@ -52,6 +52,17 @@ public class MyClass {
         System.out.println(string);
         assert  string != null;
 
+        System.out.println(factor(243));
+        System.out.println(1e9);
+        System.out.println(1e9F);
+
+    }
+    private static String factor(int n) {
+        for (int i = 2; i < n; i++) {
+            int x = n / i;
+            if (x * i == n) return factor(x) + " Ã— " + i;
+        }
+        return Integer.toString(n);
     }
 
     static void tryFinally(){
@@ -82,7 +93,7 @@ public class MyClass {
     }
 
     String getNumUnit(int len) {
-        String[] units = {"", "Ê®", "°Ù", "Ç§", "Íò","Ê®","°Ù","Ç§"};
+        String[] units = {"", "Ê®", "ï¿½ï¿½", "Ç§", "ï¿½ï¿½","Ê®","ï¿½ï¿½","Ç§"};
         return units[len];
     }
 
@@ -93,21 +104,21 @@ public class MyClass {
             case 1:
                 return "Ò»";
             case 2:
-                return "¶þ";
+                return "ï¿½ï¿½";
             case 3:
-                return "Èý";
+                return "ï¿½ï¿½";
             case 4:
-                return "ËÄ";
+                return "ï¿½ï¿½";
             case 5:
-                return "Îå";
+                return "ï¿½ï¿½";
             case 6:
-                return "Áù";
+                return "ï¿½ï¿½";
             case 7:
-                return "Æß";
+                return "ï¿½ï¿½";
             case 8:
-                return "°Ë";
+                return "ï¿½ï¿½";
             case 9:
-                return "¾Å";
+                return "ï¿½ï¿½";
 
 
         }
