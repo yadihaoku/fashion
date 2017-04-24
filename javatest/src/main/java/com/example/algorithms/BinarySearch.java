@@ -15,7 +15,7 @@ public class BinarySearch {
 
             runCount++;
             int mid = (left + right) / 2;
-            //æ˜¯å¦å‘½ä¸­ä¸­é—´çš„æ•°å­—
+            //ÊÇ·ñÃüÖĞÖĞ¼äµÄÊı×Ö
 //            if (array[mid] == key) {
 //                System.out.println("fined  index = " + mid);
 //                break;

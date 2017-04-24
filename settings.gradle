@@ -1,3 +1,3 @@
-def allProjects = [':app', ':myapplication', ':nestedscroll', ':tablayout', ':javatest', ':yydutils', ':aidlserver', ':kankanshu'];
-def projects = [':app',  ':javatest',  ':kankanshu', ':nestedscroll' ] as String []
-include( projects )
+def allProjects = [':app', ':javatest', ':myapplication', ':nestedscroll', ':tablayout', ':javatest', ':yydutils', ':aidlserver', ':kankanshu'];
+def projects = [':app', ':kankanshu', ':nestedscroll'] as String[]
+include(projects)
