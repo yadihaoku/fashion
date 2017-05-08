@@ -8,4 +8,12 @@ public class ListView extends BaseView{
     public void description() {
         System.out.println("ListView ListView!!!");
     }
+
+    @Override public void show(BaseView baseView) {
+        System.out.println("listView and baseView");
+    }
+     public void show(ListView listView) {
+        System.out.println("listView and listView");
+    }
+
 }

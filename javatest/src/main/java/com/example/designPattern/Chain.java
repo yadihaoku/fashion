@@ -18,7 +18,6 @@ public class Chain {
         logger.log(AbstractLogger.ERROR, " system error");
         logger.log(AbstractLogger.INFO, " app info asfasdfs");
         logger.log(AbstractLogger.DEBUG, " debug debug");
-
     }
 
     static abstract class AbstractLogger {

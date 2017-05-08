@@ -14,4 +14,7 @@ public class BaseView {
         System.out.println("I'm BaseView。");
     }
 
+    public void show(BaseView baseView){
+        System.out.println("baseView  and  baseView");
+    }
 }
