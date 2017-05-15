@@ -13,8 +13,8 @@ public class CountDownLatchTest {
     public static void main(String[] args) throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(4);
 //        countDownLatch = null;
-        //ä»¥è¯»å†™å†…å­˜çš„æ–¹å¼ï¼Œè·å–æŸä¸€å˜é‡çš„å†…å­˜åç§»é‡
-        //åœ¨åŒæ­¥æ–¹æ³•æ—¶ï¼Œå¯ä»¥åšåˆ°
+        //ÒÔ¶ÁĞ´ÄÚ´æµÄ·½Ê½£¬»ñÈ¡Ä³Ò»±äÁ¿µÄÄÚ´æÆ«ÒÆÁ¿
+        //ÔÚÍ¬²½·½·¨Ê±£¬¿ÉÒÔ×öµ½
 //        Unsafe.getUnsafe().objectFieldOffset()
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);

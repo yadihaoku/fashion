@@ -2,7 +2,6 @@ package com.example.designPattern;
 
 /**
  * Created by YanYadi on 2017/5/5.
- * 责任链模式
  */
 public class Chain {
 
