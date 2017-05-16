@@ -8,35 +8,35 @@ import java.util.concurrent.TimeUnit;
 public class ThreadTest {
     public static void main(String[] args) {
         /**
-         * æ€»ç»“ï¼š
-         * åœ¨çº¿ç¨‹è·å–åˆ°é”åï¼Œå¯ä»¥ä½¿ç”¨è°ƒç”¨ wait é‡Šæ”¾è¯¥é”ï¼Œå¹¶ç­‰å¾… ã€å¦ä¸€çº¿ç¨‹ã€‘ è°ƒç”¨notify æˆ–è€…
-         * notifyAll å”¤é†’è¯¥çº¿ç¨‹ï¼ˆå¦‚æœè¯¥çº¿ç¨‹ï¼Œæœªå¾—åˆ°é”ï¼Œnotifyè°ƒç”¨åæ²¡æœ‰æ•ˆæœã€‚æ‰€ä»¥å‰ææ˜¯å¿…é¡»åœ¨è·å¾—é”ä¹‹åï¼Œæ‰å¯ä»¥ç»§ç»­æ‰§è¡Œï¼‰ã€‚
+         * ×Ü½á£º
+         * ÔÚÏß³Ì»ñÈ¡µ½Ëøºó£¬¿ÉÒÔÊ¹ÓÃµ÷ÓÃ wait ÊÍ·Å¸ÃËø£¬²¢µÈ´ı ¡¾ÁíÒ»Ïß³Ì¡¿ µ÷ÓÃnotify »òÕß
+         * notifyAll »½ĞÑ¸ÃÏß³Ì£¨Èç¹û¸ÃÏß³Ì£¬Î´µÃµ½Ëø£¬notifyµ÷ÓÃºóÃ»ÓĞĞ§¹û¡£ËùÒÔÇ°ÌáÊÇ±ØĞëÔÚ»ñµÃËøÖ®ºó£¬²Å¿ÉÒÔ¼ÌĞøÖ´ĞĞ£©¡£
          *
          *
          */
 
-       final Thread mainThread = Thread.currentThread();
+        final Thread mainThread = Thread.currentThread();
 
         new Thread(){
             @Override
             public void run() {
                 System.out.println("run---");
-//                synchronized (ThreadTest.class) {
-                    int i = 0;
-                    for (; i < 100; i++) {
-                        System.out.println("i == " + i);
-                        try {
+                synchronized (ThreadTest.class) {
+                int i = 0;
+                for (; i < 100; i++) {
+                    System.out.println("i == " + i);
+                    try {
 //                            mainThread.interrupt();
-                            TimeUnit.SECONDS.sleep(2);
-                            ThreadTest.class.notify();
+                        TimeUnit.SECONDS.sleep(2);
+                        ThreadTest.class.notify();
 //                            if(i !=99)
-//                            ThreadTest.class.wait();
+                            ThreadTest.class.wait();
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            System.out.println("111111111 è·å–é” in main method");
-                        }
-//                    }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println("111111111 »ñÈ¡Ëø in main method");
+                    }
+                    }
                 }
             }
         }.start();
@@ -46,19 +46,19 @@ public class ThreadTest {
 
     public synchronized static void loop() {
 
-            int j = 0;
-            for (; j < 100; j++) {
-                System.out.println("j === " + j);
-                try {
-                    System.out.println("waiting");
-                    ThreadTest.class.notify();
-                    if(j != 99)
+        int j = 0;
+        for (; j < 100; j++) {
+            System.out.println("j === " + j);
+            try {
+                System.out.println("waiting");
+                ThreadTest.class.notify();
+                if(j != 99)
                     ThreadTest.class.wait(1000);
-                    System.out.println("waited");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    System.out.println("----- è·å–é” in loop method");
-                }
+                System.out.println("waited");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                System.out.println("----- »ñÈ¡Ëø in loop method");
+            }
         }
     }
 }
