@@ -4,6 +4,13 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     //引入 jsoup
     compile 'org.jsoup:jsoup:1.10.2'
+
+    compile ('io.socket:socket.io-client:0.8.3') {
+        // excluding org.json which is provided by Android
+//        exclude group: 'org.json', module: 'json'
+    }
+    //  引入 http
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
 }
 
 sourceCompatibility = "1.7"
