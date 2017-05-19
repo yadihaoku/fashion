@@ -20,18 +20,21 @@ public class Main {
         //子类重写父类的方法后，如果要调用父类方法，只能在 子类内部 进行处理。
         listView.sayHi();
 
-        System.out.println("===========================");
+        System.out.println("===========================1 BaseView.show(ListView)");
         BaseView baseView = new ListView();
         // 实际调用的是 BaseView.show(BaseView);
-        // 因为向下转型，最终调用 ListView.show(BaseView);
+        // 不调用 ListView.show(ListView) 的原因是
+        // 因为 BaseView 中定义了 show(BaseView) 方法，没有定义 show(ListView) 方法;
+        // ListView.show(ListView) 不是重写
         baseView.show(listView);
 
 
-        System.out.println("===========================");
-        // 实际调用的是 ListView.show(BaseView)
+        System.out.println("===========================2  ListView.show(BaseView)");
+        // 实际调用的是 BaseView.show(BaseView)
+        // 因为 ListView 中定义了 show(ListView) 方法
         listView.show(baseView);
 
-        System.out.println("===========================");
+        System.out.println("===========================3 ListView.show(ListView)");
         // 实际调用 ListView.show(ListView)
         listView.show(listView);
 
