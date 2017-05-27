@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.regex.Pattern;
-
 public class MyClass {
     public static void main(String[] args) {
 
@@ -47,15 +45,33 @@ public class MyClass {
                 "\t\t\tvar support=['iPad','iPhone','ios','android+false','msie10+false'];\n" +
                 "\t\tCKobject.embedHTML5('a1','ckplayer_a1','100%','230px',video,flashvars,support);";
 
-        Pattern pattern = Pattern.compile("video", Pattern.MULTILINE |Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
-        System.out.println(pattern.matcher(string).find());
-        System.out.println(string);
-        assert  string != null;
+//        Pattern pattern = Pattern.compile("video", Pattern.MULTILINE |Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
 
-        System.out.println(factor(243));
-        System.out.println(1e9);
-        System.out.println(1e9F);
+//        System.out.println(pattern.matcher(string).find());
+//        System.out.println(string);
+//        assert  string != null;
+//
+//        System.out.println(factor(243));
+//        System.out.println(1e9);
+//        System.out.println(1e9F);
 
+        System.out.println(null instanceof String);
+        Temp t1 = new Temp();
+        Temp t2 = new Temp();
+
+        System.out.println(t1 == t2);
+        System.out.println(t1.equals( t2) );
+
+    }
+
+    static class Temp{
+        @Override public int hashCode() {
+            return 1;
+        }
+
+        @Override public boolean equals(Object obj) {
+            return true;
+        }
     }
     private static String factor(int n) {
         for (int i = 2; i < n; i++) {
