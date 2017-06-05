@@ -298,7 +298,8 @@ public class TtsDemo extends Activity implements OnClickListener {
 	};
 
 	private void showTip(final String str) {
-		mToast.setText(str);
+        Log.i(TAG, "showTip: "+ str);
+        mToast.setText(str);
 		mToast.show();
 	}
 

@@ -55,12 +55,22 @@ public class MyClass {
 //        System.out.println(1e9);
 //        System.out.println(1e9F);
 
-        System.out.println(null instanceof String);
-        Temp t1 = new Temp();
-        Temp t2 = new Temp();
-
-        System.out.println(t1 == t2);
-        System.out.println(t1.equals( t2) );
+        String s1 = new String("sdfasdf");
+        String s2 = new String("sdfasdf");
+        String s3 = "sdfasdf";
+        String s4 = "sdfasdf";
+        System.out.println(s1.hashCode());
+        System.out.println(s2.hashCode());
+        System.out.println(s3.hashCode());
+        System.out.println(s2==s1);
+        System.out.println(s3==s4);
+        System.out.println(s2==s4);
+//        System.out.println(null instanceof String);
+//        Temp t1 = new Temp();
+//        Temp t2 = new Temp();
+//
+//        System.out.println(t1 == t2);
+//        System.out.println(t1.equals( t2) );
 
     }
 

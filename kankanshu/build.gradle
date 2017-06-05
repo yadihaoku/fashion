@@ -12,7 +12,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        // 动态配置一个资源
+        resValue "string", "common_msg" , "这是什么"
+        // 在 BuildConfig 中配置一个常量
+        buildConfigField "String","url", '"http://www.baidu.com"'
     }
     buildTypes {
         release {
