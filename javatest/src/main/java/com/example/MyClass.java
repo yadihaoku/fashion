@@ -55,6 +55,9 @@ public class MyClass {
 //        System.out.println(1e9);
 //        System.out.println(1e9F);
 
+        char yiJing = 0x4DC3;
+        System.out.println(yiJing);
+
         String s1 = new String("sdfasdf");
         String s2 = new String("sdfasdf");
         String s3 = "sdfasdf";
