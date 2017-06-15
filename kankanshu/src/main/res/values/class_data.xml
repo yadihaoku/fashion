@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="publishers">
+        <item>全部</item>
+        <item>人教版</item>
+        <item>苏教版</item>
+        <item>北师大版</item>
+        <item>西师大版</item>
+        <item>冀教版</item>
+        <item>仁爱版</item>
+        <item>语文S版</item>
+        <item>外研版</item>
+        <item>湘教版</item>
+        <item>湘少版</item>
+        <item>岳麓版</item>
+    </string-array>
+
+    <string-array name="classes">
+        <item>全部</item>
+        <item>一年级</item>
+        <item>二年级</item>
+        <item>三年级</item>
+        <item>四年级</item>
+        <item>五年级</item>
+        <item>六年级</item>
+        <item>七年级</item>
+        <item>八年级</item>
+        <item>九年级</item>
+        <item>高中必修一</item>
+        <item>高中必修二</item>
+        <item>高中必修三</item>
+        <item>高中必修四</item>
+        <item>高中必修五</item>
+        <item>高中选修</item>
+    </string-array>
+
+    <string-array name="subject">
+        <item>全部</item>
+        <item>语文</item>
+        <item>数学</item>
+        <item>英语</item>
+        <item>政治</item>
+        <item>历史</item>
+        <item>物理</item>
+        <item>生物</item>
+        <item>地理</item>
+        <item>化学</item>
+    </string-array>
+</resources>

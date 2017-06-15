@@ -1,21 +1,17 @@
 package cn.yyd.kankanshu.ui.activity;
 
-import android.content.Intent;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.yyd.kankanshu.R;
 import cn.yyd.kankanshu.ui.book.ClassListFragment;
-import cn.yyd.kankanshu.utils.logging.Ln;
 import cn.yyd.kankanshu.view.BubbleCheckedTextView;
 
 /**
@@ -30,11 +26,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.toolbar) Toolbar mToolbar;
 
-    @BindView(R.id.textView4) TextView mTextView;
-
-
-    @Inject ClassListFragment mainFragment;
-//    @Inject BookListInterface mBookList;
 
     /**
      * 底部BottomBar 单击事件
@@ -48,14 +39,6 @@ public class MainActivity extends BaseActivity {
             BubbleCheckedTextView item = (BubbleCheckedTextView) viewGroup.getChildAt(i);
             item.setChecked(item == tabItem);
         }
-        Ln.d(getApplicationContext().getApplicationContext().getApplicationContext().getApplicationContext());
-        Ln.d(getApplication().getApplicationContext().getApplicationContext());
-        Ln.d(getApplicationContext().getApplicationContext());
-        Ln.d(getBaseContext().getApplicationContext());
-    }
-
-    @OnClick(R.id.btn_speak) void onClick(View view) {
-        startActivity(new Intent(this, SpeakActivity.class));
     }
 
     @Override
@@ -63,12 +46,24 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_kk_main);
+
+
         ButterKnife.bind(this);
+
+        initContent();
 
         final BubbleCheckedTextView tvMain = (BubbleCheckedTextView) findViewById(R.id.tv_main);
         tvMain.setChecked(true);
-        assert savedInstanceState != null;
 
+    }
+
+    private void initContent() {
+        FragmentManager fragmentManager = getFragmentManager();
+        Fragment content = fragmentManager.findFragmentById(R.id.frame_main);
+        if (null == content)
+            content = ClassListFragment.instantiate(this, "content");
+
+        getFragmentManager().beginTransaction().replace(R.id.frame_main, content).commitAllowingStateLoss();
     }
 
 }
