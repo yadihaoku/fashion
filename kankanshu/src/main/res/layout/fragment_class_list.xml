@@ -1,19 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tv_class"
-        android:background="#eee"
-        android:padding="16dp"
-        android:text="@string/tip_choice_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_class_list_one"
-        style="?attr/menu_list_style"
+    <FrameLayout
+        android:id="@+id/frame_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/tv_publisher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eee"
+            android:padding="16dp"
+            android:text="@string/tip_choice_publisher"/>
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:text="类别"/>
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="@dimen/class_list_one_level_width"
-        android:layout_height="match_parent"></ListView>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/frame_category">
+
+        <ListView
+            android:id="@+id/lv_class_list_one"
+            style="?attr/menu_list_style"
+            android:layout_width="@dimen/class_list_one_level_width"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/frame_category"
+            android:cacheColorHint="@color/transparent"
+            android:divider="@color/menu_list_divider"
+            android:dividerHeight="1px"
+            android:listSelector="@color/transparent"></ListView>
+
+        <include
+            android:id="@+id/tv_checked_thumb"
+            layout="@layout/simple_list_item"
+            android:layout_width="@dimen/class_list_one_level_width"
+            android:layout_height="@dimen/menu_list_item_height"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+
+    <ViewStub
+        android:id="@+id/vs_category"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/frame_category"
+        android:layout="@layout/fragment_category_instance"/>
+</RelativeLayout>

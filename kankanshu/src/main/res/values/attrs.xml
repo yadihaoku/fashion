@@ -22,4 +22,6 @@
 
     <attr name="toolbarTitleStyle" format="reference"/>
 
+    <attr name="secondTitleStyle" format="reference" />
+
 </resources>

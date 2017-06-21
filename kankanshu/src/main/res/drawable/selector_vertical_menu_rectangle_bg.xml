@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" android:constantSize="true">
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/menu_list_checked"/>
+            <size android:width="20dp" android:height="@dimen/menu_list_item_height"/>
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <layer-list>
+            <!-- 第一层 标签 颜色 -->
+            <item>
+                <shape>
+                    <solid android:color="@color/colorPrimary"/>
+                    <size android:width="@dimen/menu_list_item_checked_width" android:height="@dimen/menu_list_item_height"/>
+                </shape>
+            </item>
+            <item android:left="@dimen/menu_list_item_checked_width">
+                <shape>
+                    <solid android:color="@color/menu_list_checked"/>
+                    <size android:width="20dp" android:height="@dimen/menu_list_item_height"/>
+                </shape>
+            </item>
+        </layer-list>
+
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@color/menu_list_unchecked"/>
+            <size android:width="20dp" android:height="@dimen/menu_list_item_height"/>
+        </shape>
+    </item>
+
+</selector>

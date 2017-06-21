@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.yyd.kankanshu.R;
 import cn.yyd.kankanshu.ui.book.ClassListFragment;
+import cn.yyd.kankanshu.utils.ViewUtils;
 import cn.yyd.kankanshu.view.BubbleCheckedTextView;
 
 /**
@@ -33,12 +34,7 @@ public class MainActivity extends BaseActivity {
      * @param tabItem
      */
     @OnClick({R.id.tv_discover, R.id.tv_settings, R.id.tv_main}) void onTabClick(BubbleCheckedTextView tabItem) {
-        if (tabItem.isChecked()) return;
-        ViewGroup viewGroup = (ViewGroup) tabItem.getParent();
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            BubbleCheckedTextView item = (BubbleCheckedTextView) viewGroup.getChildAt(i);
-            item.setChecked(item == tabItem);
-        }
+        ViewUtils.checkedItem(tabItem, (ViewGroup) tabItem.getParent());
     }
 
     @Override
@@ -55,13 +51,14 @@ public class MainActivity extends BaseActivity {
         final BubbleCheckedTextView tvMain = (BubbleCheckedTextView) findViewById(R.id.tv_main);
         tvMain.setChecked(true);
 
+
     }
 
     private void initContent() {
         FragmentManager fragmentManager = getFragmentManager();
         Fragment content = fragmentManager.findFragmentById(R.id.frame_main);
         if (null == content)
-            content = ClassListFragment.instantiate(this, "content");
+            content = ClassListFragment.instantiate(this, ClassListFragment.class.getName());
 
         getFragmentManager().beginTransaction().replace(R.id.frame_main, content).commitAllowingStateLoss();
     }

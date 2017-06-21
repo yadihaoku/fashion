@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="publishers">
-        <item>全部</item>
+        <item>全　部</item>
         <item>人教版</item>
         <item>苏教版</item>
         <item>北师大版</item>
@@ -17,7 +16,7 @@
     </string-array>
 
     <string-array name="classes">
-        <item>全部</item>
+        <item>全  部</item>
         <item>一年级</item>
         <item>二年级</item>
         <item>三年级</item>

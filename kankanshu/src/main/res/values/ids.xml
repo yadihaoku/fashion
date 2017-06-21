@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="type" type="id"/>
+    <item name="type_class" type="id"/>
+    <item name="type_subject" type="id"/>
+    <item name="type_publisher" type="id"/>
+</resources>

@@ -1,8 +1,12 @@
 package com.example;
 
+import java.util.concurrent.TimeUnit;
+
 public class MyClass {
     public static void main(String[] args) {
 
+
+        System.out.println(TimeUnit.SECONDS.toNanos(20) % 1_000_000);
 
 //        List<? extends Time> dates = new ArrayList<Time>();
 //        dates.get(0);
