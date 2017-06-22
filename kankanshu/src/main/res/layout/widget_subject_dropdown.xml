@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/category_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/menu_list_item_height"
+        android:background="@color/global_bg"
+        android:visibility="gone"
+        app:dividerDrawable="@drawable/ic_category_divider"
+        app:flexWrap="wrap"
+        app:showDivider="middle|beginning|end"></com.google.android.flexbox.FlexboxLayout>
+    <FrameLayout
+        android:id="@+id/frame_btn_subjects"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu_list_item_height"
+        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_list_item_height"
+            android:background="@color/global_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:text="@string/tip_choice_subject"/>
+
+        <cn.yyd.kankanshu.view.IconTextView
+            style="?attr/iconButtonStyle"
+            android:layout_width="@dimen/icon_button_width"
+            android:layout_height="@dimen/menu_list_item_height"
+            android:layout_gravity="right"
+            android:duplicateParentState="true"
+            android:text="&#xe6a6;"/>
+    </FrameLayout>
+
+</FrameLayout>

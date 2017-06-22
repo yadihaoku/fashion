@@ -9,5 +9,6 @@
     <string name="tip_subject">课程</string>
     <string name="tip_class">年级</string>
     <string name="tip_choice_publisher">选择版本</string>
+    <string name="tip_choice_subject">选择学科</string>
 
 </resources>

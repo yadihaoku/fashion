@@ -14,7 +14,7 @@
             android:id="@+id/tv_publisher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#eee"
+            android:background="@color/global_bg_second"
             android:padding="16dp"
             android:text="@string/tip_choice_publisher"/>
 
@@ -28,11 +28,12 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frame_class_list"
         android:layout_width="@dimen/class_list_one_level_width"
         android:layout_height="match_parent"
         android:layout_below="@+id/frame_category">
 
-        <ListView
+        <cn.yyd.kankanshu.view.AnchoredListView
             android:id="@+id/lv_class_list_one"
             style="?attr/menu_list_style"
             android:layout_width="@dimen/class_list_one_level_width"
@@ -41,7 +42,7 @@
             android:cacheColorHint="@color/transparent"
             android:divider="@color/menu_list_divider"
             android:dividerHeight="1px"
-            android:listSelector="@color/transparent"></ListView>
+            android:listSelector="@color/transparent"></cn.yyd.kankanshu.view.AnchoredListView>
 
         <include
             android:id="@+id/tv_checked_thumb"
@@ -52,6 +53,28 @@
     </FrameLayout>
 
 
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/book_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/frame_category"
+        android:layout_toRightOf="@+id/frame_class_list">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:id="@+id/frame_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame_category"
+        android:layout_toRightOf="@+id/frame_class_list">
+
+        <include layout="@layout/widget_subject_dropdown"/>
+    </FrameLayout>
+
+
+    <!-- 遮罩启动在最下面 -->
     <ViewStub
         android:id="@+id/vs_category"
         android:layout_width="match_parent"

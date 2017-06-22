@@ -6,7 +6,9 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.util.SparseIntArray;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Checkable;
 import android.widget.CheckedTextView;
@@ -19,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.yyd.kankanshu.R;
 import cn.yyd.kankanshu.utils.ViewUtils;
+import cn.yyd.kankanshu.utils.logging.Ln;
 
 /**
  * Created by YanYadi on 2017/6/20.
@@ -74,6 +77,46 @@ public class CategoryFragment extends BaseFragment {
 
     private void init() {
         fillItem(mPublisher, resources.getStringArray(R.array.publishers), R.id.type_publisher);
+        final View contentView = getView();
+        if (contentView != null) {
+            contentView.setOnTouchListener(new View.OnTouchListener() {
+                int mLastMotionY, mLastMotionX;
+                int mTouchSlop = ViewConfiguration.get(getActivity()).getScaledTouchSlop();
+                boolean mIsBeingDragged;
+
+                @Override public boolean onTouch(View v, MotionEvent ev) {
+//                    MotionEvent vtev = MotionEvent.obtain(ev);
+                    final int actionMasked = ev.getActionMasked();
+                    switch (actionMasked) {
+                        case MotionEvent.ACTION_MOVE:
+                            if (mIsBeingDragged) break;
+                            final int y = (int) ev.getY();
+                            final int x = (int) ev.getX();
+                            final int yDiff = Math.abs(y - mLastMotionY);
+                            final int xDiff = Math.abs(x - mLastMotionX);
+                            if (yDiff > mTouchSlop || xDiff > mTouchSlop) {
+                                mIsBeingDragged = true;
+                                Ln.d("being Dragged");
+                            }
+                            break;
+                        case MotionEvent.ACTION_DOWN:
+                            mLastMotionX = (int) ev.getX();
+                            mLastMotionY = (int) ev.getY();
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            if (!mIsBeingDragged) {
+                                hideSelf();
+                            }
+                            mIsBeingDragged = false;
+                            break;
+                        case MotionEvent.ACTION_CANCEL:
+                            mIsBeingDragged = false;
+                            break;
+                    }
+                    return false;
+                }
+            });
+        }
     }
 
     private void fillItem(FlexboxLayout container, String[] tags, @IdRes int type) {

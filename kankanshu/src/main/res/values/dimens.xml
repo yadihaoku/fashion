@@ -29,4 +29,5 @@
 
     <dimen name="menu_list_item_height">45dp</dimen>
     <dimen name="menu_list_item_checked_width">5dp</dimen>
+    <dimen name="icon_button_width">48dp</dimen>
 </resources>

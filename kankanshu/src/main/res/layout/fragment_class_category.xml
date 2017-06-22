@@ -11,22 +11,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            style="?attr/secondTitleStyle"
+        <LinearLayout
+            android:clickable="true"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:text="@string/tip_publisher"/>
+            android:layout_height="wrap_content">
 
-        <com.google.android.flexbox.FlexboxLayout
-            android:background="@color/global_bg"
-            android:id="@+id/category_publisher"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:dividerDrawable="@drawable/ic_category_divider"
-            app:flexWrap="wrap"
-            app:showDivider="middle|beginning|end"></com.google.android.flexbox.FlexboxLayout>
+            <TextView
+                style="?attr/secondTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:text="@string/tip_publisher"/>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/category_publisher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/global_bg"
+                app:dividerDrawable="@drawable/ic_category_divider"
+                app:flexWrap="wrap"
+                app:showDivider="middle|beginning|end"></com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

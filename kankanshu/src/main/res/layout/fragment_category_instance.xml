@@ -3,6 +3,4 @@
           android:id="@+id/fragment_category"
           class="cn.yyd.kankanshu.ui.book.CategoryFragment"
           android:layout_width="match_parent"
-          android:layout_height="match_parent">
-
-</fragment>
+          android:layout_height="match_parent"/>

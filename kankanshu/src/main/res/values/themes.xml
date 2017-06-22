@@ -11,6 +11,7 @@
         <item name="menu_list_style">@style/menu_list_style</item>
         <item name="toolbarTitleStyle">@style/toolbarTitleStyle</item>
         <item name="secondTitleStyle">@style/secondTitleStyle</item>
+        <item name="iconButtonStyle">@style/iconButton</item>
     </style>
 
     <style name="noTitle" parent="AppTheme">

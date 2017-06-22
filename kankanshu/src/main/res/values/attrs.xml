@@ -8,20 +8,21 @@
         <attr name="metaButtonBarStyle" format="reference"/>
         <attr name="metaButtonBarButtonStyle" format="reference"/>
     </declare-styleable>
-    
+
     <declare-styleable name="BubbleCheckedTextView">
         <attr name="bubbleText" format="string"></attr>
         <attr name="bubbleColor" format="color"></attr>
         <attr name="bubbleTextColor" format="color"></attr>
-        <attr name="bubbleStrokeColor" format="color" />
+        <attr name="bubbleStrokeColor" format="color"/>
     </declare-styleable>
 
-    <attr name="menu_list_style" format="reference" />
-
+    <attr name="menu_list_style" format="reference"/>
 
 
     <attr name="toolbarTitleStyle" format="reference"/>
 
-    <attr name="secondTitleStyle" format="reference" />
+    <attr name="secondTitleStyle" format="reference"/>
+
+    <attr name="iconButtonStyle" format="reference"/>
 
 </resources>
