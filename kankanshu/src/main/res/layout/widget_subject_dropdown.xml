@@ -29,6 +29,7 @@
             android:background="@color/global_bg"
             android:gravity="center_vertical"
             android:paddingLeft="8dp"
+            android:id="@+id/tv_subject"
             android:text="@string/tip_choice_subject"/>
 
         <cn.yyd.kankanshu.view.IconTextView

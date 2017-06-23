@@ -1,5 +1,7 @@
 package cn.yyd.kankanshu.ui.book;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Fragment;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Checkable;
@@ -48,19 +51,22 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
 
     @BindView(R.id.category_subject) FlexboxLayout mSubjects;
 
+    @BindView(R.id.tv_subject) TextView mTvSubject;
+
     private Unbinder unbinder;
+    private int mSubjectHeight = -1;
     private View.OnClickListener onTagClicker = new View.OnClickListener() {
         @Override public void onClick(View v) {
             //TODO 保存 subject id
-            hideSubjects();
             ViewUtils.checkedItem((Checkable) v, v.getParent());
+            if (((int) v.getTag()) == 0) {
+                mTvSubject.setText(R.string.tip_choice_subject);
+            } else {
+                mTvSubject.setText(((TextView) v).getText());
+            }
+            hideSubjects();
         }
     };
-    private int mSubjectHeight = -1;
-
-    public ClassListFragment() {
-
-    }
 
     @OnClick(R.id.frame_btn_subjects) void showSubjects() {
         if (mSubjects.getChildCount() == 0) {
@@ -76,24 +82,29 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
     private void animShowSubjects() {
         mSubjects.setVisibility(View.VISIBLE);
         if (mSubjectHeight == -1) {
-            mSubjects.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            final ViewTreeObserver observer = mSubjects.getViewTreeObserver();
+            observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override public void onGlobalLayout() {
                     Ln.d("onGlobalLayout..");
                     if (mSubjects.getHeight() != 0) {
                         mSubjectHeight = mSubjects.getHeight();
-                        mSubjects.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        observer.removeOnGlobalLayoutListener(this);
                         doAnimShow();
                     }
                 }
             });
-            mSubjects.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-                @Override public boolean onPreDraw() {
-                    Ln.d("onPreDraw..");
-                    if (mSubjectHeight == -1) return true;
-                    mSubjects.getViewTreeObserver().removeOnPreDrawListener(this);
-                    return false;
-                }
-            });
+            //如果没有得到 mSubjectHeight 则忽略这一帧的绘制。
+            //实际上，在 onMeasure之后，layout 时总会调用 onGlobalLayout方法
+            //在 layout 之后，才会绘制。
+            //所以此举是多余的
+//            observer.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//                @Override public boolean onPreDraw() {
+//                    Ln.d("onPreDraw..");
+//                    if (mSubjectHeight == -1) return true;
+//                    observer.removeOnPreDrawListener(this);
+//                    return false;
+//                }
+//            });
         } else {
             doAnimShow();
         }
@@ -114,8 +125,14 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
     }
 
     private void hideSubjects() {
-        //TODO add hide animation
-        mSubjects.setVisibility(View.GONE);
+        ValueAnimator animator = ObjectAnimator.ofFloat(mSubjects, "y", ((ViewGroup.MarginLayoutParams) mSubjects.getLayoutParams()).topMargin, -mSubjectHeight).setDuration(500);
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override public void onAnimationEnd(Animator animation) {
+                mSubjects.setVisibility(View.GONE);
+            }
+        });
+        animator.start();
     }
 
     @OnClick(R.id.tv_category) void choiceCategory(View view) {

@@ -176,6 +176,14 @@
             android:layout_toStartOf="@+id/shaderRound"
             android:onClick="toLevel"/>
 
+        <cn.yyd.fashiontech.anim.LoadingTextView
+            android:id="@+id/loading1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_parallax"
+            android:layout_alignLeft="@+id/btn_to_recycler"
+            android:layout_alignParentBottom="true"/>
+
 
     </RelativeLayout>
 </layout>
