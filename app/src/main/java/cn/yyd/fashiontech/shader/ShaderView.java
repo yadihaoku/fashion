@@ -101,7 +101,6 @@ public class ShaderView extends View {
         updateLocalState(resources);
         if (mBmpAvatar != null)
             initShader();
-
     }
 
     @Override

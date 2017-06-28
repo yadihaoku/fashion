@@ -35,6 +35,7 @@ import cn.yyd.kankanshu.R;
 import cn.yyd.kankanshu.utils.ViewUtils;
 import cn.yyd.kankanshu.utils.logging.Ln;
 import cn.yyd.kankanshu.view.AnchoredListView;
+import cn.yyd.kankanshu.widget.Loading;
 
 /**
  * Created by YanYadi on 2017/4/20.
@@ -65,6 +66,7 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
                 mTvSubject.setText(((TextView) v).getText());
             }
             hideSubjects();
+            query();
         }
     };
 
@@ -77,6 +79,10 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
         } else {
             animShowSubjects();
         }
+    }
+
+    private void query() {
+        Loading.show(getActivity()).show();
     }
 
     private void animShowSubjects() {
@@ -125,7 +131,11 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
     }
 
     private void hideSubjects() {
-        ValueAnimator animator = ObjectAnimator.ofFloat(mSubjects, "y", ((ViewGroup.MarginLayoutParams) mSubjects.getLayoutParams()).topMargin, -mSubjectHeight).setDuration(500);
+        //指定两个值，第一个值作为初始值，第二个值作为结束值
+//        ValueAnimator animator = ObjectAnimator.ofFloat(mSubjects, "y", ((ViewGroup.MarginLayoutParams) mSubjects.getLayoutParams()).topMargin, -mSubjectHeight).setDuration(500);
+
+        //只指定一个值，该值将作为结束值，初始值会从 getXX 中获取。
+        ValueAnimator animator = ObjectAnimator.ofFloat(mSubjects, "y", -mSubjectHeight).setDuration(500);
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
         animator.addListener(new AnimatorListenerAdapter() {
             @Override public void onAnimationEnd(Animator animation) {
