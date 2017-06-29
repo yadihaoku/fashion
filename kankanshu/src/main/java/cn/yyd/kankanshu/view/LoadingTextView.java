@@ -42,7 +42,6 @@ public class LoadingTextView extends View {
     private Xfermode xfermode;
 
     private ValueAnimator mAnim;
-
     public LoadingTextView(Context context) {
         this(context, null);
     }
@@ -90,7 +89,7 @@ public class LoadingTextView extends View {
 
         //使用 valueAnimator 无需使用继承，直接初始化，填入 updateListener 即可 。
         mAnim = ValueAnimator.ofInt(mLayerStart, mLayerEnd);
-        mAnim.setRepeatMode(ValueAnimator.RESTART);
+        mAnim.setRepeatMode(ValueAnimator.REVERSE);
         mAnim.setRepeatCount(ValueAnimator.INFINITE);
         mAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override public void onAnimationUpdate(ValueAnimator animation) {
@@ -114,12 +113,9 @@ public class LoadingTextView extends View {
             mAnim.cancel();
             mAnim = null;
         }
-        Ln.d("cancel anim.....");
     }
 
     @Override public void onDraw(Canvas canvas) {
-
-        Ln.d("draw anim......");
         //保存新图层
         final int saveCount = canvas.saveLayer(0, 0, mViewWidth, mViewHeight, mLayerPaint, Canvas.ALL_SAVE_FLAG);
         //绘制原始图像

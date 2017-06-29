@@ -17,6 +17,7 @@
     <color name="color_tab_checked">#AAA</color>
     <color name="color_stroke">#666</color>
     <color name="transparent">#00000000</color>
+    <color name="black_translucent">#80000000</color>
 
     <color name="primary_tip_bg">#AAA</color>
 

@@ -23,6 +23,15 @@ public class Loading extends Dialog {
 
     protected Loading(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
+        //设置坐标偏移量
+//        WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
+//        layoutParams.x = 100;
+//        layoutParams.y = 100 ;
+//        getWindow().setAttributes(layoutParams);
+        //设置背景不透明度
+        getWindow().setDimAmount(0.3f);
+        //清空 background
+        getWindow().getDecorView().setBackground(null);
     }
 
     public static Loading show(Context context) {
