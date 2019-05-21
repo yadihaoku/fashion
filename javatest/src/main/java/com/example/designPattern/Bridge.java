@@ -6,7 +6,6 @@ package com.example.designPattern;
 
 public class Bridge {
 
-
     /**
      * 定义绘制接口
      */
