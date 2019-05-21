@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
         applicationId "cn.yyd.fashiontech"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -30,7 +30,7 @@ android {
 
     // 启用 data binding
     dataBinding {
-        enabled = true
+        enabled  true
     }
 }
 task  sayWhat{
@@ -49,7 +49,7 @@ dependencies {
 //    compile 'com.android.support:appcompat-v7:23.4.0'
 
     //引入 leak canary
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    compile 'com.android.support:design:25.0.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    implementation 'com.android.support:design:28.0.0'
 }
