@@ -2,4 +2,27 @@
 <resources>
 
 
-</resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="menu_list_style">@style/menu_list_style</item>
+        <item name="toolbarTitleStyle">@style/toolbarTitleStyle</item>
+        <item name="secondTitleStyle">@style/secondTitleStyle</item>
+        <item name="iconButtonStyle">@style/iconButton</item>
+    </style>
+
+    <style name="noTitle" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="bubbleColor">#F00</item>
+        <item name="bubbleStrokeColor">#666</item>
+    </style></resources>

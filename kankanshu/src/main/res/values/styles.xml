@@ -1,27 +1,5 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="menu_list_style">@style/menu_list_style</item>
-        <item name="toolbarTitleStyle">@style/toolbarTitleStyle</item>
-    </style>
-
-    <style name="noTitle" parent="AppTheme">
-        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
-        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="bubbleColor">#F00</item>
-        <item name="bubbleStrokeColor">#666</item>
-    </style>
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
@@ -47,5 +25,22 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/toolbar_title_size</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="secondTitleStyle">
+        <item name="android:background">@color/primary_tip_bg</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorLightTextColor</item>
+    </style>
+
+    <style name="iconButton">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:shadowColor">@color/color_stroke</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:textColor">@color/color_selector_bottom_tab_bar</item>
     </style>
 </resources>

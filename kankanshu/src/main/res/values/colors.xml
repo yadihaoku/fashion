@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="global_bg">#EEE</color>
+    <color name="global_bg_second">#DDD</color>
+
     <color name="black_overlay">#66000000</color>
 
     <color name="colorPrimaryTextColor">#333</color>
@@ -12,5 +15,15 @@
 
     <color name="color_tab_unchecked">#EEE</color>
     <color name="color_tab_checked">#AAA</color>
+    <color name="color_stroke">#666</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_translucent">#80000000</color>
+
+    <color name="primary_tip_bg">#AAA</color>
+
+    <color name="menu_list_checked">@android:color/white</color>
+    <color name="menu_list_unchecked">#CCC</color>
+
+    <color name="menu_list_divider">#AAA</color>
 
 </resources>
