@@ -13,7 +13,6 @@ public class Bridge {
     interface DrawApi{
         void drawCircle(int radius);
     }
-
     /**
      * 红色圆圈，实现类1
      */
