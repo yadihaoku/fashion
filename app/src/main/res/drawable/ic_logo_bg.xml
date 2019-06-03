@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bitmap
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/leak_canary_icon"
+    android:src="@drawable/ic_avatar"
     android:gravity="center"
     android:tileMode="clamp"
     >

@@ -1,4 +1,4 @@
-include ':speechdemo'
+include ':speechdemo', ':appiumtest'
 def allProjects = [':app', ':javatest', ':myapplication', ':nestedscroll', ':tablayout', ':javatest', ':yydutils', ':aidlserver', ':kankanshu'];
-def projects = [':app', ':kankanshu', ':nestedscroll', ':javatest'] as String[]
+def projects = [':app', ':kankanshu', ':javatest'] as String[]
 include(projects)

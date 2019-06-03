@@ -33,5 +33,11 @@ public class DecimalFormatText {
 
 
         System.out.println(NumberFormat.getCurrencyInstance(Locale.CANADA).format(new BigDecimal("234324.234")));
+
+        DecimalFormat decimalFormat1 = new DecimalFormat("0.0");
+        decimalFormat1.setRoundingMode(RoundingMode.DOWN);
+        System.out.println(decimalFormat1.format(new BigDecimal("-15.459")));
+        System.out.println(decimalFormat1.format(new BigDecimal("-15.859")));
+        System.out.println(decimalFormat1.format(new BigDecimal("15.859")));
     }
 }

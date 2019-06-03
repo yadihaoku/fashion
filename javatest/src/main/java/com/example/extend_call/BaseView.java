@@ -1,9 +1,11 @@
 package com.example.extend_call;
 
+import com.example.BaseObject;
+
 /**
  * Created by YanYadi on 2017/4/5.
  */
-public class BaseView {
+public class BaseView extends BaseObject {
 
     public final void sayHi(){
         System.out.println("from BaseView!  ");

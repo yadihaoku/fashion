@@ -9,4 +9,8 @@ public class MainActivityDataBinder {
 
         return "这是消息";
     }
+
+    public static void main(String[] args) {
+
+    }
 }

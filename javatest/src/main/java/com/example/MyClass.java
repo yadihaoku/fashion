@@ -1,12 +1,14 @@
 package com.example;
 
-import java.util.concurrent.TimeUnit;
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.TimeZone;
 
 public class MyClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
 
 
-        System.out.println(TimeUnit.SECONDS.toNanos(20) % 1_000_000);
+//        System.out.println(TimeUnit.SECONDS.toNanos(20) % 1_000_000);
 
 //        List<? extends Time> dates = new ArrayList<Time>();
 //        dates.get(0);
@@ -42,36 +44,28 @@ public class MyClass {
 
 //        System.out.println(String.format ("%s","asdfsadf"));
 
-        String string = "var flashvars={f:'http://video.ums.uc.cn/video/wemedia/004ac28b851d436eaf5f646703b2bd0c/259fae061fde098f3f0cb3aeb763ab56-85386432-2.mp4?auth_key=1492150155-0-0-69f545c9f4288eb17f9dad3b9ebc4435',c:0,loaded:'loadedHandler',p:1};\t\t\n" +
-                "\t\tvar params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};\n" +
-                "\t\tCKobject.embedSWF('https://vs.6no.cc/player/player.swf','a1','ckplayer_a1','100%','460px',flashvars,params);\n" +
-                "\t\tvar video=['http://video.ums.uc.cn/video/wemedia/004ac28b851d436eaf5f646703b2bd0c/259fae061fde098f3f0cb3aeb763ab56-85386432-2.mp4?auth_key=1492150155-0-0-69f545c9f4288eb17f9dad3b9ebc4435'];\n" +
-                "\t\t\tvar support=['iPad','iPhone','ios','android+false','msie10+false'];\n" +
-                "\t\tCKobject.embedHTML5('a1','ckplayer_a1','100%','230px',video,flashvars,support);";
 
-//        Pattern pattern = Pattern.compile("video", Pattern.MULTILINE |Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
-
-//        System.out.println(pattern.matcher(string).find());
-//        System.out.println(string);
 //        assert  string != null;
 //
 //        System.out.println(factor(243));
 //        System.out.println(1e9);
 //        System.out.println(1e9F);
 
-        char yiJing = 0x4DC3;
-        System.out.println(yiJing);
-
-        String s1 = new String("sdfasdf");
-        String s2 = new String("sdfasdf");
-        String s3 = "sdfasdf";
-        String s4 = "sdfasdf";
-        System.out.println(s1.hashCode());
-        System.out.println(s2.hashCode());
-        System.out.println(s3.hashCode());
-        System.out.println(s2==s1);
-        System.out.println(s3==s4);
-        System.out.println(s2==s4);
+//        char yiJing = 0x4DC3;
+//        System.out.println(yiJing);
+//
+//        System.out.println(UUID.randomUUID().toString());
+//        System.out.println((int)(1032/179));
+//        String s1 = new String("sdfasdf");
+//        String s2 = new String("sdfasdf");
+//        String s3 = "sdfasdf";
+//        String s4 = "sdfasdf";
+//        System.out.println(s1.hashCode());
+//        System.out.println(s2.hashCode());
+//        System.out.println(s3.hashCode());
+//        System.out.println(s2==s1);
+//        System.out.println(s3==s4);
+//        System.out.println(s2==s4);
 //        System.out.println(null instanceof String);
 //        Temp t1 = new Temp();
 //        Temp t2 = new Temp();
@@ -79,7 +73,76 @@ public class MyClass {
 //        System.out.println(t1 == t2);
 //        System.out.println(t1.equals( t2) );
 
+//        String a = "1";
+//        System.out.println(byte2hex(a.getBytes("utf-8")))
+//        byte b[] =  {12,99};
+
+//        long time = System.currentTimeMillis();
+//        final int delayed =(int) Math.max(0,1000L - time);
+//        System.out.println(delayed);
+//        System.out.println((int)time);
+//        System.out.println(1000 - (int)time);
+
+        TimeZone tz = TimeZone.getTimeZone("GMT+8");
+        System.out.println(tz.getID());
+        System.out.println(tz.getDisplayName());
+        System.out.println(Arrays.toString(TimeZone.getAvailableIDs()));
+        System.out.println(tz);
     }
+    public static byte[] byte2hex1(byte[] bts) { // 二进制转字符串
+        byte chars[] = new byte[bts.length * 2];
+        int c = 0;
+        for (byte b : bts) {
+            chars[c++] = HEX_BYTES[b >> 4 & 0xF];
+            chars[c++] = HEX_BYTES[b  & 0xF];
+        }
+        return chars;
+    }
+    static byte convert(byte b){
+        byte r = (byte) (HEX_BYTES[b >> 4 & 0xF] | HEX_BYTES[b  & 0x0F]);
+        return r;
+    }
+    static final char[] HEX_DIGITS =
+            { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+    static final byte[] HEX_BYTES =
+            { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+    public static String hex(byte [] data) {
+        char[] result = new char[data.length * 2];
+        int c = 0;
+        for (byte b : data) {
+            result[c++] = HEX_DIGITS[(b >> 4) & 0xf];
+            result[c++] = HEX_DIGITS[b & 0xf];
+        }
+        return new String(result);
+    }
+
+    public static String byte2hex(byte[] b) { // 二进制转字符串
+        StringBuilder hs =  new StringBuilder();
+        String stmp = "";
+        char chars[] = new char[b.length * 2];
+        for (int n = 0; n < b.length; n++) {
+            stmp = (Integer.toHexString(b[n] & 0XFF));
+            if (stmp.length() == 1)
+                hs.append("0");
+            hs.append(stmp);
+        }
+        return hs.toString();
+    }
+//    public static String byte2hex(byte[] bts) { // 二进制转字符串
+//        char [] result = new char[bts.length * 2];
+//        int c = 0;
+//        for(byte bt : bts){
+//            result[c++] =
+//        }
+//        char chars[] = new char[b.length * 2];
+//        for (int n = 0; n < b.length; n++) {
+//            stmp = (Integer.toHexString(b[n] & 0XFF));
+//            if (stmp.length() == 1)
+//                hs.append("0");
+//            hs.append(stmp);
+//        }
+//        return hs.toString();
+//    }
 
     static class Temp{
         @Override public int hashCode() {

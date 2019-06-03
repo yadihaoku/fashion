@@ -13,6 +13,8 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -24,12 +26,29 @@ public class HttpClientTest {
     static final String S_12306 = "https://kyfw.12306.cn/otn/";
 
     public static void main(String[] args) throws IOException {
+        final Thread thread = Thread.currentThread();
         OkHttpUtils.init("E:\\cache");
         OkHttpClient trustClient = OkHttpUtils.getHttpClient().newBuilder().sslSocketFactory(sslSocketFactory()).build();
-        Response response = trustClient.newCall(new Request.Builder().url(S_12306).get().build()).execute();
-        System.out.println(response.body().string());
-    }
+        trustClient.newCall(new Request.Builder().url(S_12306).get().build()).enqueue(new Callback() {
+            @Override public void onFailure(Call call, IOException e) {
 
+            }
+
+            @Override public void onResponse(Call call, Response response) throws IOException {
+                System.out.println("=======================");
+                peekThread();
+                if(thread != Thread.currentThread())
+                    System.out.println("synchronize");
+                System.out.println("=======================");
+            }
+        });
+        peekThread();
+        System.out.println("------------------");
+    }
+    static void peekThread(){
+        System.out.println(Thread.currentThread().getThreadGroup());
+        System.out.println(Thread.currentThread().getName());
+    }
     static SSLSocketFactory sslSocketFactory() {
         TrustManager trustManagers[] = new TrustManager[1];
         trustManagers[0] = new TrustAllHostManager();
@@ -59,6 +78,10 @@ public class HttpClientTest {
             System.out.println(x509Certificates.length);
             System.out.println(x509Certificates[0]);
             System.out.println(s);
+
+            //应该执行默认验证
+            //验证不通过，抛出异常
+            x509Certificates[0 ].checkValidity();
         }
 
         @Override public X509Certificate[] getAcceptedIssuers() {

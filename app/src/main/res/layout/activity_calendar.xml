@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.yyd.fashiontech.CalendarActivity">
+
+    <Button
+        android:id="@+id/btn_query_calendar_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="149dp"
+        android:text="查询日历ID"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_insert_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="68dp"
+        android:text="插入事件"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_query_calendar_id"
+        app:layout_constraintTop_toBottomOf="@+id/btn_query_calendar_id"/>
+</android.support.constraint.ConstraintLayout>

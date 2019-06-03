@@ -4,8 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +40,10 @@ public class MainActivity extends BaseActivity {
         ViewUtils.checkedItem(tabItem, (ViewGroup) tabItem.getParent());
     }
 
+    @Override public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +57,7 @@ public class MainActivity extends BaseActivity {
 
         final BubbleCheckedTextView tvMain = (BubbleCheckedTextView) findViewById(R.id.tv_main);
         tvMain.setChecked(true);
+
 
 
     }

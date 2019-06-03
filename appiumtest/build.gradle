@@ -1,0 +1,11 @@
+apply plugin: 'java'
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'io.appium:java-client:3.4.1'
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

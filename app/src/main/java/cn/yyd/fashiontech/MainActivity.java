@@ -7,6 +7,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
@@ -58,6 +59,32 @@ public class MainActivity extends BaseActivity {
 
 //        LeakCanary.refWatcher(this).build().watch();
 
+
+
+    }
+
+    void suspend(){
+        try {
+            Thread.sleep(10_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override public boolean dispatchTouchEvent(MotionEvent ev) {
+        final int action = ev.getAction();
+        switch(action){
+            case MotionEvent.ACTION_UP:
+                Log.d(TAG, "dispatchTouchEvent: ------suspend event");
+                suspend();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.d(TAG, "dispatchTouchEvent: -----move");
+                break;
+            default:
+                Log.i(TAG, "dispatchTouchEvent: -----receipt event");
+                ;
+        }
+        return true;
     }
 
     @Override

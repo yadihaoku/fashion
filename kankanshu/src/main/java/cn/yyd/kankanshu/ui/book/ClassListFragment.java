@@ -23,8 +23,10 @@ import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Checkable;
 import android.widget.CheckedTextView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.flexbox.FlexboxLayout;
 
 import butterknife.BindView;
@@ -32,6 +34,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import cn.yyd.kankanshu.R;
+import cn.yyd.kankanshu.utils.Cn2Spell;
 import cn.yyd.kankanshu.utils.ViewUtils;
 import cn.yyd.kankanshu.utils.logging.Ln;
 import cn.yyd.kankanshu.view.AnchoredListView;
@@ -53,6 +56,8 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
     @BindView(R.id.category_subject) FlexboxLayout mSubjects;
 
     @BindView(R.id.tv_subject) TextView mTvSubject;
+
+    @BindView(R.id.iv_logo) ImageView ivLogo;
 
     private Unbinder unbinder;
     private int mSubjectHeight = -1;
@@ -188,6 +193,15 @@ public class ClassListFragment extends BaseFragment implements CategoryFragment.
         mListLevelOne.setAdapter(new SimpleAdapter(getActivity(), R.layout.simple_list_item, R.id.tv_category, resources.getStringArray(R.array.classes)));
         mListLevelOne.setItemChecked(0, true);
         mListLevelOne.setAnchorView(getView().findViewById(R.id.tv_checked_thumb));
+
+        Glide.with(this).load("http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1309/30/c43/26672571_1380535042061.jpg")
+                .into(ivLogo);
+
+
+
+        String pn = Cn2Spell.getInstance().convert("这是什么");
+        System.out.println(pn);
+
     }
 
     private void fillItem(FlexboxLayout container, String[] tags, @IdRes int type) {

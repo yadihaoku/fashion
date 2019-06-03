@@ -11,6 +11,7 @@ dependencies {
     }
     //  引入 http
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.google.code.gson:gson:2.6.2'
 }
 
 sourceCompatibility = "1.7"

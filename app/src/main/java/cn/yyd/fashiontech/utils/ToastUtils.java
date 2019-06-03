@@ -4,6 +4,7 @@ import android.app.Application;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -18,15 +19,23 @@ public class ToastUtils {
 	private static Method mShowMethod;
 	private static Method mHideMethod;
 	private static Field mTnNextView;
+    private static WeakReference<Toast> toastWeakReference;
 
 	public static final void toast(String text) {
-		if (mContext == null) {
-			if (mIsTryGetContext)
-				return;
-			mContext = getApplicationContext();
-			mIsTryGetContext = true;
-		}
-		Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();
+        Toast toast;
+        if(toastWeakReference != null && (toast = toastWeakReference.get())!=null){
+            toast.setText(text);
+        }else {
+            if (mContext == null) {
+                if (mIsTryGetContext)
+                    return;
+                mContext = getApplicationContext();
+                mIsTryGetContext = true;
+            }
+		   toast = Toast.makeText(mContext, text, Toast.LENGTH_LONG);
+            toastWeakReference = new WeakReference<Toast>(toast);
+        }
+        toast.show();
 	}
 
 	public static final void permanentToast(String msg) {
