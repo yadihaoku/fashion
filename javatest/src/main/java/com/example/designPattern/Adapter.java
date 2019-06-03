@@ -6,13 +6,16 @@ package com.example.designPattern;
  * Android 中，Context 、ContextWrapper 都是典型的适配器模式.
  * 例子：
  * 有两台 android手机（一台micro usb、一台Type-c ）需要充电，但是只有一个苹果充电器和数据线。
- * 要给这两台手机充电，需要两个转接头。通过 对象适配和类适配来模拟这个转接头。
+ * 要给这两台手机充电，需要两个转接头。通过 对象适配 或 类适配来模拟这个转接头。
  */
 public class Adapter {
 
     public static void main(String[] args) {
         IphoneChargeAdaptee appleCharger = new IphoneChargeAdaptee();
+        //使用对象适配器
         MicroUsbAdapter microUsbAdapter = new MicroUsbAdapter(appleCharger);
+
+        //使用类适配器
         TypeCAdapter typeCAdapter = new TypeCAdapter();
 
         appleCharger.charge();
